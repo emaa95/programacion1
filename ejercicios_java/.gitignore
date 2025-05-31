@@ -1,0 +1,14 @@
+# === Java ===
+
+# Compiled class files
+*.class
+
+# Compiled JARs, WARs, EARs
+*.jar
+*.war
+*.ear
+
+# Build directories
+bin/
+build/
+target/
