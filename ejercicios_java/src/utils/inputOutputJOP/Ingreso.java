@@ -3,6 +3,9 @@ package utils.inputOutputJOP;
 import javax.swing.JOptionPane;
 
 public class Ingreso {
+
+    private static String cError = "Error de Dato";
+    
     public static String leerString(String cMens) {
         boolean repetir;
         String texto = "";
@@ -129,5 +132,23 @@ public class Ingreso {
         } while (repetir);
 
         return n;
+    }
+
+     public static int nOpciones(String cMensaje, String[] opc, String cTitulo) {
+        int seleccion = -1;
+        boolean valido = false;
+        do {
+            try {
+                seleccion = JOptionPane.showOptionDialog(null, cMensaje,
+                        cTitulo, JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,
+                        null, opc, opc[0]);
+                if (seleccion == -1)
+                    throw new Exception("La Debe seleccionar una Opción");
+                valido = true;
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error: " + e.getMessage(), cError, 0);
+            }
+        } while (!valido);
+        return seleccion;
     }
 }
